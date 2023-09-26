@@ -9,13 +9,14 @@ import Home from "./pages/Home";
 import ClientForm from "./pages/ClientForm";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ComingSoon from "./pages/ComingSoon";
 
 const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar/>
+      <Navbar />
       <Outlet />
-      <Footer/>
+      <Footer />
     </div>
   );
 };
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/cart/orderdetails",
         element: <ClientForm />,
+      },
+      {
+        path: "/*",
+        element: <ComingSoon />,
       },
     ],
   },
