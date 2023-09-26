@@ -6,7 +6,10 @@ const pool = createPool({
   password: "",
   database: "deliveryapp",
   connectionLimit: 10,
+  socketPath: "aliftechtest:us-central1:deliveryapp"
+  
 });
+
 
 
 module.exports = pool;

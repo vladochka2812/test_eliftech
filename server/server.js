@@ -5,6 +5,16 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static("app-front/public"));
+app.set("trust proxy", true);
+
+/*
+if (process.env.NODE_ENV === "production") {
+  pool.connection.socketPath = "aliftechtest:us-central1:deliveryapp";
+} else {
+  pool.connection.host = "localhost";
+}*/
+
 app.get("/api", (req, res) => {
   res.json({ users: ["userOne", "userTwo", "fkjgnfjgn"] });
 });
@@ -76,6 +86,7 @@ app.post("/addorder", (req, res) => {
   );
 });
 
-app.listen(5000, () => {
-  console.log("server started on port 5000");
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
 });
